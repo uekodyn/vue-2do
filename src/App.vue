@@ -1,28 +1,35 @@
 <template>
   <v-app id="inspire">
-    <!-- <v-navigation-drawer
-      v-model="drawer"
-      app
-    >
-     
-    </v-navigation-drawer> -->
+
     <v-navigation-drawer
-      dark    
-
-      v-model="drawer"
-      app >
-
+    v-model="drawer"
+    app
+    >
+    <v-img
+    src="https://picsum.photos/1920/1080/"
+    gradient="to top right, rgba(19,84,122,.5), rgba(28,108,199,.8)"
+    dark
+    class="pt-5 text-center"
+    >
+      <v-avatar
+      size="100"
+      >
+        <img
+          src="https://picsum.photos/1920/1080/"
+          alt="John"
+        >
+      </v-avatar>
       <v-list-item>
         <v-list-item-content>
-          <v-list-item-title class="text-h6">
-            2do
+          <v-list-item-title class="text-h6 ">
+            2-do
           </v-list-item-title>
           <v-list-item-subtitle>
-            Lista de Tarefas
-
+            Lista de tarefas
           </v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
+    </v-img>
 
       <v-divider></v-divider>
 
@@ -46,44 +53,37 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <!-- <v-app-bar app>
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-
-      <v-toolbar-title>Application</v-toolbar-title>
-    </v-app-bar> -->
 
     <v-app-bar
       app
-      color="#fcb69f"
-      dark    
       prominent
-      src="https://picsum.photos/id/1006/1920/1080/">
-    
+      height="185"
+      color="#fcb69f"
+      dark
+      src="https://picsum.photos/1920/1080/"
+    >
       <template v-slot:img="{ props }">
         <v-img
           v-bind="props"
-          gradient="to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"
+          gradient="to top right, rgba(19,84,122,.5), rgba(28,108,199,.8)"
         ></v-img>
       </template>
 
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-      <v-app-bar-title  >Tarefas</v-app-bar-title>
+      <center>
+        <v-app-bar-title
+        class="mt-16"
+        >
+          <InputTarefa
+          style="padding: 0 !important; min-width: 100% !important;"
+          />
 
-      <v-spacer></v-spacer>
+        </v-app-bar-title>
+      </center>
 
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
-      </v-btn>
     </v-app-bar>
+    
 
     <v-main>
       <router-view/>
@@ -92,13 +92,15 @@
 </template>
 
 <script>
+import InputTarefa from './components/InputTarefa.vue'
   export default {
+  components: { InputTarefa },
     data: () => ({ 
       drawer: null,
-        items: [
+      items: [
           { title: 'Tarefas', icon: 'mdi-view-dashboard', to:'/' },
-          { title: 'Sobre', icon: 'mdi-help-box', to:'/sobre' },
-        ],  
-        }), 
+          { title: 'Sobre', icon: 'mdi-help-box', to:'/sobre'  },
+        ],
+    }),
   }
 </script>

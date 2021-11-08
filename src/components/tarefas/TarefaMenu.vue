@@ -39,9 +39,8 @@
 </template>
 
 <script>
-import ModalDelete from '../dialogs/DialogDeletar.vue'
-import ModalEditar from '../dialogs/DialogEditar.vue'
-
+import ModalDelete from '../Modal/ModalDelete.vue'
+import ModalEditar from '../Modal/ModalEditar.vue'
 export default {
     props:['tarefa'],
     components: { ModalEditar, ModalDelete },
