@@ -1,54 +1,74 @@
 <template>
   <div>
-    <v-menu offset-y>
+      <v-menu offset-y>
       <template v-slot:activator="{ on, attrs }">
-        <v-btn  color="primary"   dark  v-bind="attrs"  v-on="on"   icon >
-            <v-icon >
+        <v-btn
+          v-bind="attrs"
+          v-on="on"
+          icon
+        >
+            <v-icon>
                 mdi-dots-vertical
             </v-icon>
         </v-btn>
       </template>
       <v-list>
-        <v-list-item  v-for="(item, index) in items"  :key="index" @click="item.click()">
-            <v-icon>
-                {{item.icone}}
-            </v-icon>
-          <v-list-item-title>{{ item.title }}</v-list-item-title>
+        <v-list-item
+          v-for="(item, index) in items"
+          :key="index"
+          @click="item.click()"
+        >
+            <v-icon left>{{ item.icone }}</v-icon>
+
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+
         </v-list-item>
       </v-list>
     </v-menu>
-    <dialog-editar />
+    <ModalEditar
+    v-if="items[0].modal"
+    @fechaModal="items[0].modal = false"
+    :tarefa="tarefa"
+    />
+    <ModalDelete 
+    v-if="items[1].modal"
+    @fechaModal="items[1].modal = false"
+    :tarefa="tarefa"
+    />
   </div>
 </template>
 
-
 <script>
-import DialogEditar from '../dialogs/DialogEditar.vue'
+import ModalDelete from '../dialogs/DialogDeletar.vue'
+import ModalEditar from '../dialogs/DialogEditar.vue'
 
-
-  export default {
-  components: { DialogEditar },
+export default {
+    props:['tarefa'],
+    components: { ModalEditar, ModalDelete },
     data: () => ({
       items: [
-        { 
-            icone:"mdi-pencil",  
-            title: 'Editar',
-            click(){
-               
-            }
-        },
-
-        {   
+          { 
+              icone:"mdi-pencil", 
+              title: 'Editar',
+              modal: false,
+              click(){
+                console.log("Editar")
+                this.modal = true
+              }
+          },
+          {
             icone:"mdi-trash-can",
-            title: 'Excluir' },
-            
-           
-            
+              title: 'Excluir',
+              modal:false,
+              click(){
+                console.log("Excluir")
+                this.modal = true
+              }
+          },
       ],
     }),
-  }
+}
 </script>
 
 <style>
-
 </style>
