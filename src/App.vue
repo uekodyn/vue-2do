@@ -57,7 +57,7 @@
     <v-app-bar
       app
       prominent
-      height="185"
+      height="186"
       color="#fcb69f"
       dark
       src="https://picsum.photos/1920/1080/"
