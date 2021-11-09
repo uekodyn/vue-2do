@@ -1,6 +1,7 @@
 <template>
 <div>
-    <lista-de-tarefas />
+    <!-- <lista-de-tarefas /> -->
+    <tab-semana />
     <div v-if="!$store.state.tarefas.length" class="bob-esponja animate__flip">
       <v-row class="mt-5" justify="center">
       <v-icon size="80" class="mt-9 animate__animated animate__flip " color="primary">mdi-check</v-icon>
@@ -14,12 +15,14 @@
 </template>
 
 <script>
-import ListaDeTarefas from '../components/tarefas/ListaDeTarefas.vue';
+// import ListaDeTarefas from '../components/tarefas/ListaDeTarefas.vue';
+import TabSemana from '../components/tarefas/TabSemana.vue';
 
   export default {
     name: 'Home',
     components: {
-        ListaDeTarefas
+        // ListaDeTarefas,
+        TabSemana
     },
     created(){
       this.$store.commit('buscaTarefas');
