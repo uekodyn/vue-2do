@@ -3,28 +3,31 @@
 
     <v-navigation-drawer
     v-model="drawer"
+    
     app
+    gradient="to top right, rgba(19,84,122,.5), rgba(28,108,199,.8)"
     >
     <v-img
-    src="https://picsum.photos/1920/1080/"
     gradient="to top right, rgba(19,84,122,.5), rgba(28,108,199,.8)"
+    style="background: #0fcdd6"
     dark
-    class="pt-5 text-center"
+    class=" pt-5 text-center"
     >
       <v-avatar
       size="100"
       >
         <img
-          src="https://picsum.photos/1920/1080/"
+        gradient="to top right, rgba(19,84,122,.5), rgba(28,108,199,.8)"
+          src="../public/img/icons/android-chrome-192x192.png"
           alt="John"
         >
       </v-avatar>
       <v-list-item>
         <v-list-item-content>
-          <v-list-item-title class="text-h6 ">
-            2-do
+          <v-list-item-title class="text-h6 black--text ">
+            2Do
           </v-list-item-title>
-          <v-list-item-subtitle>
+          <v-list-item-subtitle class="black--text">
             Lista de tarefas
           </v-list-item-subtitle>
         </v-list-item-content>
@@ -42,13 +45,14 @@
           :key="item.title"
           :to="item.to"
           link
+          
         >
           <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
+            <v-icon >{{ item.icon }}</v-icon>
           </v-list-item-icon>
 
-          <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          <v-list-item-content >
+            <v-list-item-title  >{{ item.title }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -58,9 +62,9 @@
       app
       prominent
       height="186"
-      color="#fcb69f"
+      color="#0fcdd6"
       dark
-      src="https://picsum.photos/1920/1080/"
+     
     >
       <template v-slot:img="{ props }">
         <v-img
@@ -104,3 +108,6 @@ import InputTarefa from './components/InputTarefa.vue'
     }),
   }
 </script>
+<style scoped>
+
+</style>
